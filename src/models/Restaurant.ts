@@ -1,10 +1,10 @@
-import { Category } from "./Category";
-import { Image } from "./Image";
+import { ICategory } from "./Category";
+import { IImage } from "./Image";
 
-export interface Restaurant {
+export interface IRestaurant {
   id: number;
   Name: string;
   Description: string;
-  category: Category | undefined;
-  image: Image | undefined;
+  category: ICategory | undefined;
+  image: IImage | undefined;
 }

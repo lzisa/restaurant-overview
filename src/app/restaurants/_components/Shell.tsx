@@ -2,9 +2,9 @@
 import { AppShell, Burger } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import RestaurantList from "components/RestaurantDisplay/RestaurantList";
-import { Restaurant } from "models/Restaurant";
+import { IRestaurant } from "models/Restaurant";
 
-export const Shell = ({ restaurants }: { restaurants: Restaurant[] }) => {
+export const Shell = ({ restaurants }: { restaurants: IRestaurant[] }) => {
   const [opened, { toggle }] = useDisclosure();
   // console.warn(restaurants);
   return (

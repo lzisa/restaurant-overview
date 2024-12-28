@@ -1,5 +1,4 @@
-"use client";
-import { Restaurant } from "models/Restaurant";
+import { IRestaurant } from "models/Restaurant";
 import { Suspense } from "react";
 import { RestaurantItem } from "./RestaurantItem";
 import { Stack, Title } from "@mantine/core";
@@ -10,10 +9,8 @@ import { Stack, Title } from "@mantine/core";
 export const RestaurantList = ({
   restaurants,
 }: {
-  restaurants: Restaurant[];
+  restaurants: IRestaurant[];
 }) => {
-  // Hydrate the atom with the server-provided data
-  // useHydrateAtoms([[restaurantsAtom, restaurants]]);
   return (
     <div>
       <Title order={1}>Restaurants</Title>
