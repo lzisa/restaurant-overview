@@ -1,8 +1,14 @@
-import axios from "axios";
-import { cache } from "react";
+import { IRestaurant } from "../models/Restaurant";
 
-export const getRestaurants = cache(async () => {
-  return await axios.get(
-    `${process.env.STRAPI_API_URL}/api/restaurants?populate=*`
-  );
-});
+export async function getRestaurants(): Promise<IRestaurant[]> {
+  const res = await fetch(
+    `${process.env.STRAPI_API_URL}/api/restaurants?populate=*`,
+    {
+      next: {
+        revalidate: 3600,
+      },
+    }
+  ).then((data) => data.json());
+  const restaurants: IRestaurant[] = res.data;
+  return restaurants;
+}

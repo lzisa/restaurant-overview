@@ -1,8 +1,8 @@
 "use client";
 import { Button, Card, Text, Image, Group, Badge, Flex } from "@mantine/core";
-import { myTheme } from "app/layout";
 import { IImage } from "./../../models/Image";
 import { IRestaurant } from "models/Restaurant";
+import { myTheme } from "theme/myTheme";
 
 export const RestaurantItem = ({ restaurant }: { restaurant: IRestaurant }) => {
   console.warn(restaurant);

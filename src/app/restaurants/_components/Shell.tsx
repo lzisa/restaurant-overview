@@ -6,7 +6,7 @@ import { IRestaurant } from "models/Restaurant";
 
 export const Shell = ({ restaurants }: { restaurants: IRestaurant[] }) => {
   const [opened, { toggle }] = useDisclosure();
-  // console.warn(restaurants);
+
   return (
     <>
       <AppShell
