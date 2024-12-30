@@ -1,5 +1,5 @@
 "use client";
-import { Button, Card, Text, Image, Group, Badge, Flex } from "@mantine/core";
+import { Card, Text, Image, Group, Badge, Flex, NavLink } from "@mantine/core";
 import { IImage } from "./../../models/Image";
 import { IRestaurant } from "models/Restaurant";
 import { myTheme } from "theme/myTheme";
@@ -13,7 +13,7 @@ export const RestaurantItem = ({ restaurant }: { restaurant: IRestaurant }) => {
           <Image
             src={getStrapiMedia(restaurant.image)}
             height={160}
-            alt="Norway"
+            alt={restaurant.Name + "Picture"}
           />
         )}
       </Card.Section>
@@ -28,12 +28,13 @@ export const RestaurantItem = ({ restaurant }: { restaurant: IRestaurant }) => {
       </Group>
 
       <Text size="sm" c="dimmed">
-        {"" + restaurant.Description}
+        {"" + restaurant.Description + " " + restaurant.id}
       </Text>
       <Flex justify="flex-end" align="flex-end">
-        <Button color="grape" mt="md" radius="md" fullWidth={false}>
-          Book classic tour now
-        </Button>
+        <NavLink
+          href={"./restaurants/" + restaurant.documentId}
+          label={"more"}
+        />
       </Flex>
     </Card>
   );

@@ -3,9 +3,6 @@ import { Suspense } from "react";
 import { RestaurantItem } from "./RestaurantItem";
 import { Stack, Title } from "@mantine/core";
 
-// Define the atom to store restaurants
-
-// Hydrate atom and render restaurants
 export const RestaurantList = ({
   restaurants,
 }: {

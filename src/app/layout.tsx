@@ -6,6 +6,7 @@ import {
   mantineHtmlProps,
 } from "@mantine/core";
 import { myTheme } from "theme/myTheme";
+import Shell from "./Shell";
 
 export const metadata = {
   title: "Restaurant Overview",
@@ -24,7 +25,7 @@ export default function RootLayout({
       </head>
       <body>
         <MantineProvider defaultColorScheme="dark" theme={myTheme}>
-          {children}
+          <Shell>{children}</Shell>
         </MantineProvider>
       </body>
     </html>
