@@ -7,7 +7,6 @@ export default async function Page({ params }: { params: { id: string } }) {
   let restaurant;
   try {
     restaurant = await getRestaurantById(paramsResolved.id);
-    console.warn(restaurant);
     if (!restaurant) {
       notFound(); // Navigate to a 404 page if the restaurant isn't found
     }

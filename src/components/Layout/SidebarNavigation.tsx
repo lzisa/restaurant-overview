@@ -28,14 +28,19 @@ function NavbarLink({
   return (
     <Tooltip label={label} position="right" transitionProps={{ duration: 0 }}>
       <Link
+        onClick={onClick}
         href={path}
         className={clsx(
-          "w-[50px] h-[50px] rounded-md flex items-center justify-center  text-primary-700 dark:text-primary-200 hover:bg-primary-100 dark:hover:bg-gray-700 data-[active]:bg-blue-500 data-[active]:text-white"
+          "rounded-md flex items-center sm:justify-center  text-primary-700 dark:text-primary-200 hover:bg-primary-100 dark:hover:bg-gray-700 data-[active]:bg-blue-500 data-[active]:text-white"
         )}
       >
-        <UnstyledButton onClick={onClick} data-active={active || undefined}>
+        <UnstyledButton
+          data-active={active || undefined}
+          className="w-[50px] h-[50px] items-center justify-center flex"
+        >
           <Icon size={20} stroke={1.5} />
         </UnstyledButton>
+        <div className="sm:hidden">{label}</div>
       </Link>
     </Tooltip>
   );
@@ -50,17 +55,17 @@ const navigationItems: NavbarLinkProps[] = [
   {
     icon: IconGauge,
     label: "Dashboard",
-    path: "",
+    path: "/",
   },
   {
     icon: IconDeviceDesktopAnalytics,
-    label: "Analytics",
+    label: "Restaurants",
     path: "/restaurants",
   },
   {
     icon: IconSettings,
     label: "Settings",
-    path: "",
+    path: "/",
   },
 ];
 
@@ -90,6 +95,6 @@ export function NavbarMinimal({ onNavigate }: NavbarMinimalProps) {
 
   return (
     // <Flex justify="start">
-    <Stack className="flex items-center gap-2 my-2 flex-col">{links}</Stack>
+    <Stack className="flex sm:items-center gap-2 my-2 flex-col">{links}</Stack>
   );
 }

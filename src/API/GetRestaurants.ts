@@ -27,9 +27,7 @@ export async function getRestaurants(): Promise<IRestaurant[]> {
 }
 
 export async function getRestaurantById(id: string): Promise<IRestaurant> {
-  // Return cached restaurant if available
   const cachedRestaurant = filterFromCache(id);
-  console.warn(cachedRestaurant);
   if (cachedRestaurant) {
     console.log(`Using cached restaurant with id ${id}.`);
     return cachedRestaurant;
