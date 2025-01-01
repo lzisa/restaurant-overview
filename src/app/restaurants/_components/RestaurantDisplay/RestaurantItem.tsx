@@ -1,11 +1,12 @@
 "use client";
-import { Card, Text, Image, Group, Badge, Flex, NavLink } from "@mantine/core";
-import { IImage } from "./../../models/Image";
+import { Card, Text, Image, Group, Button, Badge } from "@mantine/core";
+import { IconArrowRight, IconToolsKitchen } from "@tabler/icons-react";
+import { IImage } from "../../../../models/Image";
 import { IRestaurant } from "models/Restaurant";
 import { myTheme } from "theme/myTheme";
+import Link from "next/link";
 
 export const RestaurantItem = ({ restaurant }: { restaurant: IRestaurant }) => {
-  console.warn(restaurant);
   return (
     <Card shadow="sm" padding="lg" radius="md" withBorder>
       <Card.Section>
@@ -30,12 +31,21 @@ export const RestaurantItem = ({ restaurant }: { restaurant: IRestaurant }) => {
       <Text size="sm" c="dimmed">
         {"" + restaurant.Description + " " + restaurant.id}
       </Text>
-      <Flex justify="flex-end" align="flex-end">
-        <NavLink
-          href={"./restaurants/" + restaurant.documentId}
-          label={"more"}
-        />
-      </Flex>
+      {/* <Flex justify="flex-end" align="flex-end"> */}
+
+      <Group justify="right">
+        <Link href={"./restaurants/" + restaurant.documentId}>
+          <Button
+            variant="light"
+            leftSection={<IconToolsKitchen size={14} />}
+            rightSection={<IconArrowRight size={14} />}
+          >
+            more
+          </Button>
+        </Link>
+      </Group>
+
+      {/* </Flex> */}
     </Card>
   );
 };

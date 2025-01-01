@@ -1,14 +1,12 @@
 import { Suspense } from "react";
-import { getRestaurants } from "API/GetRestaurants";
-import RestaurantList from "components/RestaurantDisplay/RestaurantList";
-import { IRestaurant } from "models/Restaurant";
+import RestaurantList from "app/restaurants/_components/RestaurantDisplay/RestaurantList";
 
 export default async function Page() {
-  const restaurants: IRestaurant[] = await getRestaurants();
   return (
-    <Suspense fallback={<p>Loading...</p>}>
-      <p>Test</p>
-      <RestaurantList restaurants={restaurants} />
-    </Suspense>
+    <>
+      <Suspense fallback={<p>Loading...</p>}>
+        <RestaurantList />
+      </Suspense>
+    </>
   );
 }

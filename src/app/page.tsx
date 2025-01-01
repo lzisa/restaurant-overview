@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Shell from "./Shell";
+import Shell from "../components/Layout/Shell";
 
 export default function Page() {
   console.warn(Shell);

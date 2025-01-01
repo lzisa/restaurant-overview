@@ -5,22 +5,27 @@ import {
   AppShellNavbar,
 } from "@mantine/core";
 import { ReactNode } from "react";
-import { BurgerMenu } from "./client-side/components/BurgerMenu";
+import { BurgerMenu } from "./BurgerMenu";
+import { NavbarMinimal } from "./SidebarNavigation";
 
 export default async function Shell({ children }: { children: ReactNode }) {
   return (
     <AppShell
       header={{ height: 60 }}
       navbar={{
-        width: 300,
+        width: 80,
         breakpoint: "sm",
+        collapsed: { mobile: true },
       }}
       padding="md"
     >
       <AppShellHeader>
-        <BurgerMenu /> <div>Logo</div>
+        <BurgerMenu />
+        <div>Logo</div>
       </AppShellHeader>
-      <AppShellNavbar>sidebarContent</AppShellNavbar>
+      <AppShellNavbar>
+        <NavbarMinimal />
+      </AppShellNavbar>
       <AppShellMain>{children}</AppShellMain>
     </AppShell>
   );
