@@ -6,12 +6,13 @@ import {
 } from "@mantine/core";
 import { ReactNode } from "react";
 import { BurgerMenu } from "./BurgerMenu";
-import { NavbarMinimal } from "./SidebarNavigation";
+import { Image } from "@mantine/core";
+import { PrimaryMenu } from "./PrimaryMenu";
 
-export default async function Shell({ children }: { children: ReactNode }) {
+export const Shell = ({ children }: { children: ReactNode }) => {
   return (
     <AppShell
-      header={{ height: 60 }}
+      header={{ height: 100 }}
       navbar={{
         width: 80,
         breakpoint: "sm",
@@ -20,13 +21,17 @@ export default async function Shell({ children }: { children: ReactNode }) {
       padding="md"
     >
       <AppShellHeader>
-        <BurgerMenu />
-        <div>Logo</div>
+        <div className="flex gap-4  items-center pl-2 h-full">
+          <BurgerMenu />
+          <div className="p-2 flex gap-4 flex-1 justify-center">
+            <Image src={"logo.png"} alt="logo" c={"white"} w={150} />
+          </div>
+        </div>
       </AppShellHeader>
       <AppShellNavbar>
-        <NavbarMinimal />
+        <PrimaryMenu />
       </AppShellNavbar>
       <AppShellMain>{children}</AppShellMain>
     </AppShell>
   );
-}
+};

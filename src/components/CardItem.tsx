@@ -1,27 +1,15 @@
-import {
-  Card,
-  Text,
-  Image,
-  Group,
-  Button,
-  Badge,
-  CardSection,
-  ActionIcon,
-} from "@mantine/core";
-import {
-  IconArrowRight,
-  IconHeart,
-  IconToolsKitchen,
-} from "@tabler/icons-react";
-import { IImage } from "../../../../models/Image";
-import Link from "next/link";
+import { Card, Text, Image, Group, Badge, CardSection } from "@mantine/core";
+import { IImage } from "../models/Image";
+import { ReactNode } from "react";
 
 export type CardProps = {
   title: string;
   badge?: string;
   description: string;
-  link: string;
   image?: IImage;
+  children: {
+    actions?: ReactNode;
+  };
 };
 
 export const CardItem = ({
@@ -29,7 +17,7 @@ export const CardItem = ({
   title,
   badge,
   description,
-  link,
+  children,
 }: CardProps) => {
   return (
     <Card shadow="sm" padding="lg" p="md" radius="md" withBorder>
@@ -52,20 +40,7 @@ export const CardItem = ({
         <Text size="sm" c="dimmed">
           {"" + description}
         </Text>
-        <Group mt="md">
-          <Link href={link} className="flex flex-1">
-            <Button
-              style={{ flex: 1 }}
-              leftSection={<IconToolsKitchen size={14} />}
-              rightSection={<IconArrowRight size={14} />}
-            >
-              Show details
-            </Button>
-          </Link>
-          <ActionIcon variant="default" radius="md" size={36}>
-            <IconHeart className="text-red-600" stroke={1.5} />
-          </ActionIcon>
-        </Group>
+        <Group mt="md">{children.actions}</Group>
       </CardSection>
     </Card>
   );

@@ -1,4 +1,4 @@
-import RestaurantList from "app/restaurants/_components/RestaurantDisplay/RestaurantList";
+import RestaurantList from "app/restaurants/_components/RestaurantList";
 import { Title } from "@mantine/core";
 
 export default async function Page() {
