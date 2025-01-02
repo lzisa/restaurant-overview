@@ -5,10 +5,10 @@ let restaurantCache: IRestaurant[] | null = null;
 
 export async function getRestaurants(): Promise<IRestaurant[]> {
   // Return cached restaurants if available
-  if (restaurantCache) {
-    console.log("Using cached restaurants.");
-    return restaurantCache;
-  }
+  // if (restaurantCache) {
+  //   console.log("Using cached restaurants.");
+  //   return restaurantCache;
+  // }
 
   // Fetch and cache restaurants
   console.log("Fetching restaurants from API.");
@@ -16,13 +16,13 @@ export async function getRestaurants(): Promise<IRestaurant[]> {
     `${process.env.STRAPI_API_URL}/api/restaurants?populate=*`,
     {
       next: {
-        revalidate: 3600,
+        revalidate: 3,
       },
     }
   ).then((data) => data.json());
 
   const restaurants: IRestaurant[] = res.data;
-  restaurantCache = restaurants; // Cache the result
+  // restaurantCache = restaurants; // Cache the result
   return restaurants;
 }
 
@@ -45,7 +45,7 @@ export async function getRestaurantById(id: string): Promise<IRestaurant> {
   ).then((data) => data.json());
 
   const restaurant: IRestaurant = res.data;
-  addToCache(restaurant);
+  // addToCache(restaurant);
   return restaurant;
 }
 

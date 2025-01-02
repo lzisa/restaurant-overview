@@ -31,7 +31,7 @@ function NavbarLink({
         onClick={onClick}
         href={path}
         className={clsx(
-          "rounded-md flex items-center sm:justify-center  text-primary-700 dark:text-primary-200 hover:bg-primary-100 dark:hover:bg-gray-700 data-[active]:bg-blue-500 data-[active]:text-white"
+          "rounded-md flex items-center md:justify-center  text-primary-700 dark:text-primary-200 hover:bg-primary-100 dark:hover:bg-gray-700 data-[active]:bg-blue-500 data-[active]:text-white"
         )}
       >
         <UnstyledButton
@@ -40,7 +40,7 @@ function NavbarLink({
         >
           <Icon size={20} stroke={1.5} />
         </UnstyledButton>
-        <div className="sm:hidden">{label}</div>
+        <div className="md:hidden">{label}</div>
       </Link>
     </Tooltip>
   );
@@ -95,6 +95,6 @@ export function NavbarMinimal({ onNavigate }: NavbarMinimalProps) {
 
   return (
     // <Flex justify="start">
-    <Stack className="flex sm:items-center gap-2 my-2 flex-col">{links}</Stack>
+    <Stack className="flex md:items-center gap-2 my-2 flex-col">{links}</Stack>
   );
 }

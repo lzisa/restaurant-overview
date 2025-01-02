@@ -1,34 +1,21 @@
-export const mantineColors = {
-  primary: [
-    "#ffeef9",
-    "#f3deea",
-    "#dfbcd0",
-    "#cc98b6",
-    "#bb799f",
-    "#b26591",
-    "#ae5a8b",
-    "#994a78",
-    "#89416b",
-    "#7a355e",
-  ],
-};
+import { sharedColors } from "./src/theme/myTheme.ts";
 
 module.exports = {
-  content: ["./src/**/*.{js,ts,jsx,tsx}"], // Adjust to match your project
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
         primary: {
-          50: mantineColors.primary[0],
-          100: mantineColors.primary[1],
-          200: mantineColors.primary[2],
-          300: mantineColors.primary[3],
-          400: mantineColors.primary[4],
-          500: mantineColors.primary[5],
-          600: mantineColors.primary[6],
-          700: mantineColors.primary[7],
-          800: mantineColors.primary[8],
-          900: mantineColors.primary[9],
+          50: sharedColors.primary[0],
+          100: sharedColors.primary[1],
+          200: sharedColors.primary[2],
+          300: sharedColors.primary[3],
+          400: sharedColors.primary[4],
+          500: sharedColors.primary[5],
+          600: sharedColors.primary[6],
+          700: sharedColors.primary[7],
+          800: sharedColors.primary[8],
+          900: sharedColors.primary[9],
         },
       },
     },

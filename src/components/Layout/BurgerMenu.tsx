@@ -11,7 +11,6 @@ export function BurgerMenu() {
     <>
       <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
       <Drawer opened={opened} onClose={toggle} title="Menu" hiddenFrom="sm">
-        content
         <NavbarMinimal onNavigate={toggle} />
       </Drawer>
     </>
